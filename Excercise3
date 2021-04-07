@@ -1,0 +1,36 @@
+package day2task2arrays;
+
+import java.util.*;
+import java.lang.*;
+
+public class Sorting {
+	public static void main(String[] args) {
+		System.out.println("Enter the array size : ");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		for(int i=0;i<n;i++) {
+			System.out.println("Enter the element "+(i+1)+" in array");
+			arr[i]=sc.nextInt();
+		}
+		int [] resArr=getSorted(arr);
+		for(int i=0;i<n;i++) {
+			System.out.println(resArr[i]);
+		}
+	}
+	public static int [] getSorted(int[] arr) {
+		int len=arr.length;
+		for(int i=0;i<len;i++) {
+			String s=Integer.toString(arr[i]);
+			StringBuilder x = new StringBuilder();
+			x.append(s);
+			x.reverse();
+			String s1=x.toString();
+			arr[i]=Integer.parseInt(s1);
+		}
+		System.out.println("hhhhhhhhhhhh");
+		Arrays.sort(arr);
+		return arr;
+	}
+
+}
