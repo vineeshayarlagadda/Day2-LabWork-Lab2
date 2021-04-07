@@ -1,0 +1,26 @@
+package day2task2arrays;
+
+import java.util.*;
+public class SecondSmallest {
+	public static void main(String[] args) {
+		
+		System.out.println("Enter the array size : ");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		for(int i=0;i<n;i++) {
+			System.out.println("Enter the element "+(i+1)+" in array");
+			arr[i]=sc.nextInt();
+		}
+		System.out.println(getSecondSmallest(arr));
+		
+	}
+	
+	//------Get the second smallest element in the array--------
+
+	public static int getSecondSmallest(int a[]) {
+		Arrays.sort(a);
+		return a[1];
+	}
+
+}
