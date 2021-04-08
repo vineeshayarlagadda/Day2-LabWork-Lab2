@@ -1,8 +1,4 @@
-package day2task2arrays;
-
-import java.util.*;
-
-public class sortingStringArray {
+public class sortingString {
 	public static void main(String[] args) {
 		System.out.println("Enter the array size : ");
 		Scanner sc=new Scanner(System.in);
@@ -12,34 +8,27 @@ public class sortingStringArray {
 			System.out.println("Enter the string "+(i+1)+" in array");
 			arr[i]=sc.next();
 		}
-		System.out.println(sortStrings(arr));
+		String[] result=sortStrings(arr);
+		for(int i=0;i<n;i++) {
+			System.out.println(result[i]);
+		}
 	}
 
 	//-------accept an array of String objects and sort in Alphabetical order-------
 	
-	public static StringBuilder  sortStrings(String[] arr){
+	public static String[] sortStrings(String[] arr){
 		Arrays.sort(arr);
-		for(int i=0;i<arr.length;i++) {
-			int len=arr[i].length();
-			int limit;
-			if (len%2==0) {
-				limit=len/2;
-			}
-			else {
-				limit=(len/2)+1;
-			}
-			String s=arr[i].substring(0,limit).toUpperCase();
-//			System.out.println(s);
-			StringBuilder[] s1=new StringBuilder[len];
-			StringBuilder x=new StringBuilder();
-			x.append(arr[i]);
-			x.replace(0,limit,s);
-			s1[i]=x;
-			System.out.println(s1[i]);
-	}
-//		for(int i=0;i<s1.length;i++) {
-//			System.out.println(s1[i]);
-//		}
-		return s1;
-}
+		int len = arr.length;
+        for(int i = 0;i < len;i++) {
+        	int lenOfString = arr[i].length();
+    		if(lenOfString%2 == 0) {
+    			arr[i] = arr[i].substring(0 , lenOfString/2).toUpperCase() + arr[i].substring(lenOfString/2).toLowerCase();
+    		}else {
+    			arr[i] = arr[i].substring(0 , lenOfString/2+1).toUpperCase() + arr[i].substring(lenOfString/2+1).toLowerCase();
+    		}
+    	}
+    	
+    	return arr;
+    }
+
 }
